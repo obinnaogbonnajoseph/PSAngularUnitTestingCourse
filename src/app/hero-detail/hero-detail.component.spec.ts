@@ -37,6 +37,8 @@ describe('HeroDetailComponent', () => {
     })
 
     // demo of using fakeAsync class and flush or tick to handle asynchronous codes
+    // note that with flush() you don't need to specify time, 
+    // with tick() you may have to calculate and specify the estimated time for asynchronous code completion
     /*it('should call updateHero when save is called', fakeAsync(() => {
         mockHeroService.updateHero.and.returnValue(of({}));
         fixture.detectChanges();

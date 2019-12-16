@@ -42,4 +42,6 @@ describe('HeroComponent (shallow tests)', () => {
         expect(fixture.nativeElement.querySelector('button')).toBeDefined();
         expect(fixture.nativeElement.querySelector('.delete')).toBeDefined();
     })
+
+    // todo: test the routerlink:::::
 })
