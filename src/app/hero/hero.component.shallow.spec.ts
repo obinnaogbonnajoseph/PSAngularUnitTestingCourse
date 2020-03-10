@@ -11,21 +11,21 @@ describe('HeroComponent (shallow tests)', () => {
         TestBed.configureTestingModule({
             declarations: [HeroComponent],
             schemas: [NO_ERRORS_SCHEMA]
-        })
+        });
         fixture = TestBed.createComponent(HeroComponent);
         component = fixture.componentInstance;
-    })
+    });
 
     it('should have the correct hero', () => {
         component.hero = { id: 1, name: 'SuperDude', strength: 3};
 
         expect(component.hero.name).toEqual('SuperDude');
-    })
+    });
 
     it('should render the hero name in an anchor tag', () => {
         // arrange
         component.hero = { id: 1, name: 'SuperDude', strength: 3};
-        
+
         // act
         fixture.detectChanges();
 
@@ -36,12 +36,12 @@ describe('HeroComponent (shallow tests)', () => {
         // let debugElement = fixture.debugElement.query(By.css('a'));
         // let nativeElement = debugElement.nativeElement;
         // expect(nativeElement.textContent).toContain('SuperDude');
-    })
+    });
 
     it('should have a delete button', () => {
         expect(fixture.nativeElement.querySelector('button')).toBeDefined();
         expect(fixture.nativeElement.querySelector('.delete')).toBeDefined();
-    })
+    });
 
     // todo: test the routerlink:::::
-})
+});

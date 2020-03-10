@@ -1,5 +1,6 @@
 import { TestBed, ComponentFixture, fakeAsync, tick, flush, async } from '@angular/core/testing';
 import { DashboardComponent } from './dashboard.component';
+// tslint:disable-next-line: import-blacklist
 import { of } from 'rxjs';
 import { HeroService } from '../hero.service';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
@@ -12,7 +13,7 @@ import { StrengthPipe } from '../strength/strength.pipe';
 
 describe('DashboardComponent', () => {
     let fixture: ComponentFixture<DashboardComponent>, mockHeroService, component;
-    let mockHeroes = [
+    const mockHeroes = [
         {
             id: 1,
             name: 'SuperPants Man',
@@ -28,7 +29,7 @@ describe('DashboardComponent', () => {
             name: 'Super Woman',
             strength: 20
         }
-    ]
+    ];
 
     beforeEach(() => {
         mockHeroService = jasmine.createSpyObj(['getHeroes']);
@@ -39,11 +40,11 @@ describe('DashboardComponent', () => {
                 provide: HeroService, useValue: mockHeroService
             }],
             schemas: [NO_ERRORS_SCHEMA]
-        })
+        });
 
         fixture = TestBed.createComponent(DashboardComponent);
         mockHeroService.getHeroes.and.returnValue(of(mockHeroes));
-    })
+    });
 
     it('should call mockService.getHeroes when component.getHeroes() is called', fakeAsync(() => {
         component = fixture.componentInstance;
@@ -52,7 +53,7 @@ describe('DashboardComponent', () => {
         flush();
 
         expect(mockHeroService.getHeroes).toHaveBeenCalled();
-    }))
+    }));
 
     it('should populate the heroes property when getHeroes is called', fakeAsync(() => {
         component = fixture.componentInstance;
@@ -61,5 +62,5 @@ describe('DashboardComponent', () => {
         flush();
 
         expect(component.heroes).toEqual(mockHeroes.slice(1, 5));
-    }))
-})
+    }));
+});
